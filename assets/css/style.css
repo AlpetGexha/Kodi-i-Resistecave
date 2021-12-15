@@ -1,0 +1,21 @@
+.container {
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.TableTD {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.Table {
+    margin: auto;
+}
+.mainTitle{
+    margin-top: 3rem;
+    padding: 1rem;
+}

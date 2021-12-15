@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Resiteca me 5 unaza</title>
+</head>
+
+<body onLoad="calcOhm()">
+
+    <div class="container">
+        <div class="mainTitle">
+            <h1 class="title">
+                <i><u>Llogarisni vleren e Rezistencave nga Kodi i Ngjyrave </u></i>
+            </h1>
+            <u style="color: red;">- Rezistenca me 5 unaza (normale)</u>
+        </div>
+
+        <div class="opsionet">
+            <form action="">
+                <select name="hundSelect" onChange="setHund(this)">
+                    <option selected> Zi</option>
+                    <option> Kafe</option>s
+                    <option> Kuq </option>
+                    <option> Portokall</option>
+                    <option> Verdhe</option>
+                    <option> Jeshil </option>
+                    <option> Kaltert</option>
+                    <option> Vjollce</option>
+                    <option> Gri </option>
+                    <option> Bardhe</option>
+                </select>
+
+                <select name="tensSelect" onChange="setTens(this)">
+                    <option selected> Zi</option>
+                    <option> Kafe</option>
+                    <option> Kuq </option>
+                    <option> Portokall</option>
+                    <option> Verdhe</option>
+                    <option> Jeshil </option>
+                    <option> Kaltert</option>
+                    <option> Vjollce</option>
+                    <option> Gri </option>
+                    <option> Bardhe</option>
+                </select>
+
+                <select name="onesSelect" onChange="setOnes(this)">
+                    <option selected> Zi</option>
+                    <option> Kafe</option>
+                    <option> Kuq </option>
+                    <option> Portokall</option>
+                    <option> Verdhe</option>
+                    <option> Jeshil </option>
+                    <option> Kaltert</option>
+                    <option> Vjollce</option>
+                    <option> Gri </option>
+                    <option> Bardhe</option>
+                </select>
+
+                <select name="multiplierSelect" onChange="setMult(this)">
+                    <option selecteds> Zi</option>
+                    <option> Kafe</option>
+                    <option> Kuq </option>
+                    <option> Portokall</option>
+                    <option> Verdhe</option>
+                    <option> Jeshil </option>
+                    <option> Kaltert</option>
+                    <option> Ari</option>
+                    <option> Argjendi </option>
+                </select>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="toleranceSelect" onChange="setTol(this)">
+                    <option> Vjollce</option>
+                    <option selected> Kaltert</option>
+                    <option> Jeshil</option>
+                    <option> Kafe</option>
+                    <option> Kuq</option>
+                    <option> Ari</option>
+                    <option> Argjendi</option>
+                    <option> Pa Ngjyre</option>
+
+                </select>
+            </form>
+
+            <table class="Table">
+                <tr>
+                    <td>
+                        <form><input type='text' name='result' size="20" readonly=""></form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TableTD">
+                        <img src='resleft.gif' width=127 height=182>
+                        <img src='Zi.gif' name='hund' width=21 height=182>
+                        <img src='Zi.gif' name='tens' width=21 height=182>
+                        <img src='Zi.gif' name='ones' width=21 height=182>
+                        <img src='Zi.gif' name='mult' width=21 height=182>
+                        <img src='spacer.gif' width=17 height=182>
+                        <img src='Kafe.gif' name='tol' width=21 height=182>
+                        <img src='resright.gif' width=127 EIGHT=182>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="assets/js/unaza5.js"></script>
+</body>
+
+</html>
