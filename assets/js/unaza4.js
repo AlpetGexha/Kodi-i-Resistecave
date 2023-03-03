@@ -1,79 +1,75 @@
- // create array listing all the multiplier values
- var multiplier = new Array()
- multiplier[0] = 0
- multiplier[1] = 1
- multiplier[2] = 2
- multiplier[3] = 3
- multiplier[4] = 4
- multiplier[5] = 5
- multiplier[6] = 6
- multiplier[7] = -1
- multiplier[8] = -2
+// Create arrays listing all the multiplier values and tolerance values
+const multiplier = [
+    0, 1, 2, 3, 4, 5, 6, -1, -2
+];
 
- // create array listing all tolerance values
- var tolerance = new Array()
- tolerance[0] = "+/-5%"
- tolerance[1] = "+/-10%"
- tolerance[2] = "+/-20%"
+const tolerance = [
+    "+/-5%", "+/-10%", "+/-20%"
+];
 
- // format large values into kilo and meg
- function format(ohmage) {
-     if (ohmage >= 10e6) {
-         ohmage /= 10e5
-         return "" + ohmage + " Mohms"
-     } else {
-         if (ohmage >= 10e3) {
-             ohmage /= 10e2
-             return "" + ohmage + " Kohms"
-         } else {
-             return "" + ohmage + " ohms"
-         }
-     }
- }
+const PATH = 'assets/img/';
 
- // calculate resistance and tolerance values
- function calcOhms() {
-     var form = document.forms[0]
-     var d1 = form.tensSelect.selectedIndex
-     var d2 = form.onesSelect.selectedIndex
-     var m = form.multiplierSelect.selectedIndex
-     var t = form.toleranceSelect.selectedIndex
-     var ohmage = (d1 * 10) + d2
-     ohmage = eval("" + ohmage + "e" + multiplier[m])
-     ohmage = format(ohmage)
-     var tol = tolerance[t]
-     document.forms[1].result.value = ohmage + ", " + tol
- }
+// Format large values into kilo and mega ohms
+function formatOhmage(ohmage) {
+    if (ohmage >= 1e6) {
+        ohmage /= 1e6;
+        return `${ohmage} Mohms`;
+    } else if (ohmage >= 1e3) {
+        ohmage /= 1e3;
+        return `${ohmage} Kohms`;
+    } else {
+        return `${ohmage} ohms`;
+    }
+}
 
- // pre-load all color images into image cache
- var colorList = "Zi,Kaltert,Kafe,Ari,Gri,Jeshil,Pa Ngjyre,Portokall,Kuq,Argjendi,Vjollce,Bardhe,Verdhe"
- var colorArray = colorList.split(",")
- var imageDB = new Array()
- for (i = 0; i < colorArray.length; i++) {
-     imageDB[colorArray[i]] = new Image(21, 182)
-     imageDB[colorArray[i]].src = colorArray[i] + ".gif"
- }
+// Calculate resistance and tolerance values
+function calcOhms() {
+    const form = document.forms[0];
+    const d1 = form.tensSelect.selectedIndex;
+    const d2 = form.onesSelect.selectedIndex;
+    const m = form.multiplierSelect.selectedIndex;
+    const t = form.toleranceSelect.selectedIndex;
+    let ohmage = (d1 * 10) + d2;
+    ohmage = eval(`${ohmage}e${multiplier[m]}`);
+    ohmage = formatOhmage(ohmage);
+    const tol = tolerance[t];
+    document.forms[1].result.value = `${ohmage}, ${tol}`;
+}
 
- function setTens(choice) {
-     var tensColor = choice.options[choice.selectedIndex].text
-     document.tens.src = imageDB[tensColor].src
-     calcOhms()
- }
+// Pre-load all color images into image cache
+const colorList = "Zi,Kaltert,Kafe,Ari,Gri,Jeshil,Pa Ngjyre,Portokall,Kuq,Argjendi,Vjollce,Bardhe,Verdhe";
+const colorArray = colorList.split(",");
+const imageDB = {};
+for (let i = 0; i < colorArray.length; i++) {
+    const color = colorArray[i];
+    imageDB[color] = new Image(21, 182);
+    imageDB[color].src = `${PATH}${color}.gif`;
+}
 
- function setOnes(choice) {
-     var onesColor = choice.options[choice.selectedIndex].text
-     document.ones.src = imageDB[onesColor].src
-     calcOhms()
- }
+// Set the color image for the tens digit
+function setTens(choice) {
+    const tensColor = choice.options[choice.selectedIndex].text;
+    document.tens.src = imageDB[tensColor].src;
+    calcOhms();
+}
 
- function setMult(choice) {
-     var multColor = choice.options[choice.selectedIndex].text
-     document.mult.src = imageDB[multColor].src
-     calcOhms()
- }
+// Set the color image for the ones digit
+function setOnes(choice) {
+    const onesColor = choice.options[choice.selectedIndex].text;
+    document.ones.src = imageDB[onesColor].src;
+    calcOhms();
+}
 
- function setTol(choice) {
-     var tolColor = choice.options[choice.selectedIndex].text
-     document.tol.src = imageDB[tolColor].src
-     calcOhms()
- }
+// Set the color image for the multiplier
+function setMult(choice) {
+    const multColor = choice.options[choice.selectedIndex].text;
+    document.mult.src = imageDB[multColor].src;
+    calcOhms();
+}
+
+// Set the color image for the tolerance
+function setTol(choice) {
+    const tolColor = choice.options[choice.selectedIndex].text;
+    document.tol.src = imageDB[tolColor].src;
+    calcOhms();
+}

@@ -7,15 +7,16 @@
     text-align: center;
 }
 
-.TableTD {
+.td {
     display: flex;
     flex-wrap: nowrap;
 }
 
-.Table {
+.table {
     margin: auto;
 }
-.mainTitle{
+
+.mainTitle {
     margin-top: 3rem;
     padding: 1rem;
 }

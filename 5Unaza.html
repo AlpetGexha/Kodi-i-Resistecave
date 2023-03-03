@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defers src="assets/js/unaza5.js"></script>
+
+    <title>Resiteca me 5 unaza</title>
+</head>
+
+<body onLoad="calcOhm()">
+
+    <div class="container">
+        <div class="mainTitle">
+            <h1 class="title">
+                <i><u>Llogarisni vleren e Rezistencave nga Kodi i Ngjyrave </u></i>
+            </h1>
+            <u style="color: red;">- Rezistenca me 5 unaza (normale)</u>
+            <a href="4Unaza.html">4 Unaza</a>
+        </div>
+
+        <div class="opsionet">
+            <form action="">
+                <select name="hundSelect" onChange="setHund(this)"> </select>
+                <select name="tensSelect" onChange="setTens(this)"> </select>
+                <select name="onesSelect" onChange="setOnes(this)"> </select>
+
+                <select name="multiplierSelect" onChange="setMult(this)">
+                    <option selecteds> Zi</option>
+                    <option> Kafe</option>
+                    <option> Kuq </option>
+                    <option> Portokall</option>
+                    <option> Verdhe</option>
+                    <option> Jeshil </option>
+                    <option> Kaltert</option>
+                    <option> Ari</option>
+                    <option> Argjendi </option>
+                </select>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="toleranceSelect" onChange="setTol(this)">
+                    <option> Vjollce</option>
+                    <option selected> Kaltert</option>
+                    <option> Jeshil</option>
+                    <option> Kafe</option>
+                    <option> Kuq</option>
+                    <option> Ari</option>
+                    <option> Argjendi</option>
+                    <option> Pa Ngjyre</option>
+
+                </select>
+            </form>
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <form>
+                            <input type='text' name='result' size="20" readonly="">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">
+                        <img src='assets/img/resleft.gif'   width=127 height=182 />
+                        <img src='assets/img/Zi.gif'        width=21 height=182 name='hund' />
+                        <img src='assets/img/Zi.gif'        width=21 height=182 name='tens' />
+                        <img src='assets/img/Zi.gif'        width=21 height=182 name='ones' />
+                        <img src='assets/img/Zi.gif'        width=21 height=182 name='mult' />
+                        <img src='assets/img/spacer.gif'    width=17 height=182 />
+                        <img src='assets/img/Kafe.gif'      width=21 height=182 name='tol' />
+                        <img src='assets/img/resright.gif'  width=127 EIGHT=182 />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const color = [
+            'Zi', 'Kafe', 'Kuq', 'Portokall', 'Verdhe', 'Jeshil', 'Kaltert', 'Vjollce', 'Gri', 'Bardhe',
+        ];
+
+        const hundSelect = document.getElementsByName('hundSelect')[0];
+        const tensSelect = document.getElementsByName('tensSelect')[0];
+        const onesSelect = document.getElementsByName('onesSelect')[0];
+
+        color.forEach((item, index) => {
+            hundSelect.innerHTML += `<option value="${index}">${item}</option>`
+            tensSelect.innerHTML += `<option value="${index}">${item}</option>`
+            onesSelect.innerHTML += `<option value="${index}">${item}</option>`
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/unaza4.js"></script>
+
+    <title>Rezistenca me 4 Unaza</title>
+</head>
+<style>
+
+</style>
+
+<body onsLoad="calcOhms()">
+
+    <div class="container">
+        <div class="mainTitle">
+            <h1 class="title">
+                <i><u>Llogarisni vleren e Rezistencave nga Kodi i Ngjyrave </u></i>
+            </h1>
+            <u style="color: red;">- Rezistenca me 4 Unaza (normale)</u>
+            <a href="5Unaza.html">5 Unaza</a>
+        </div>
+
+        <div class="opsionet">
+            <form action="">
+                <select name="tensSelect" onChange="setTens(this)"> </select>
+                <select name="onesSelect" onChange="setOnes(this)"> </select>
+                <select name="multiplierSelect" onChange="setMult(this)"> </select>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <select name="toleranceSelect" onChange="setTol(this)">
+                    <option selected> Ari</option>
+                    <option> Argjendi</option>
+                    <option> Pa Ngjyre</option>
+                </select>
+
+            </form>
+        </div>
+
+
+        <table class="table">
+            <tr>
+                <td>
+                    <form>
+                        <input type='text' name='result' size='20' readonly=''>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    <img src='assets/img/resleft.gif'  width=127 height=182 />
+                    <img src='assets/img/Kafe.gif'     width=21 height=182 name='tens' />
+                    <img src='assets/img/Zi.gif'       width=21 height=182 name='ones' />
+                    <img src='assets/img/Zi.gif'       width=21 height=182 name='mult' />
+                    <img src='assets/img/spacer.gif'   width=17 height=182 />
+                    <img src='assets/img/Ari.gif'      width=21 height=182 name='tol' />
+                    <img src='assets/img/resright.gif' width=127 height=182>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const color = [
+            'Zi', 'Kafe', 'Kuq', 'Portokall', 'Verdhe', 'Jeshil', 'Kaltert', 'Vjollce', 'Gri', 'Bardhe',
+        ];
+
+        const multiplierColor = [
+            'Zi', 'Kafe', 'Kuq', 'Portokall', 'Verdhe', 'Jeshil', 'Kaltert', 'Ari', 'Argjendi',
+        ];
+
+        const tens = document.querySelector('[name="tensSelect"]')
+        const ones = document.querySelector('[name="onesSelect"]')
+        const multiplierSelect = document.querySelector('[name="multiplierSelect"]')
+
+        color.forEach((item, index) => {
+            tens.innerHTML += `<option value="${index}">${item}</option>`
+            ones.innerHTML += `<option value="${index}">${item}</option>`
+        })
+
+        multiplierColor.forEach((item, index) => {
+            multiplierSelect.innerHTML += `<option value="${index}">${item}</option>`
+        })
+    </script>
+
+</body>
+
+</html>
